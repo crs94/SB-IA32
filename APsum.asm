@@ -1,14 +1,15 @@
 ; Sum of arithmetic progression with R = 1
 ; This program sums all the numbers
 ; from a given user input N and 0
+; 
+; In order to save code, on will use
+; the io.mac library(?) to get input
+; and print messages
 
+%include "io.mac"
 section .data
 	msg db 'Last number to sum is '
-	msgSize EQU $-msg
 	endmsg db 'Sum is '
-	endSize EQU $-endmsg
-	nwln db 0dh, 0ah
-	nwlnSize EQU $-nwln
 	
 section .bss
 	last resb 1 ; last = [0,9]
