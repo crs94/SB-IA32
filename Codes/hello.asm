@@ -2,7 +2,7 @@
 ; mainstream "Hello World!"
 
 section .data
-	msg db 'Hello World!',0dh, 0ah
+	msg db 'Hello World!', 0ah
 	
 section .text
 global _start
@@ -11,7 +11,7 @@ _start:
 	mov ebx, 1	; ebx = 1 for stdout (monitor)
 	mov ecx, msg	; ecx = string address
 	mov edx, 13	; edx = length(string)
-	int 80h		; system interruption
+	int 0x80	; system interruption
 	mov eax, 1	; eax = 1 for sys_exit
-	mov ebx, 0	; ebx = value that'll be returned
+	;mov ebx, 0	; ebx = value that'll be returned
 	int 80h		; system interruption
