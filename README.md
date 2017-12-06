@@ -5,9 +5,13 @@ Linguagem IA-32
 ##Como montar e executar um programa de Assembly no terminal do Linux
 
 Dado um programa chamado hello.asm:
+Assembles: nasm -f elf -o hello.o hello.asm
 
-nasm -f elf -o hello.o hello.asm (monta o arquivo)
+Links in 32-bit: ld -o hello hello.o 
+Links in 64-bit: ld -m elf_i386 -o hello hello.o
+(Add libraries files by the end of the link command line)
 
-ld -o hello hello.o (caso o sistema seja nativo 64 bits use o comando ld -m elf_i386 -o hello hello.o para gerar o executavel)
+Executes: ./hello
 
-./hello (executa o arquivo)
+
+Libraries obtained from: http://service.scs.carleton.ca/sivarama/org_book/org_book_web/source_code.html
