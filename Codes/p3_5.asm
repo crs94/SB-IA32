@@ -24,10 +24,10 @@
 	mov ecx, 0
 	mov edx, 0744
 	int 0x80
-	;mov [fd1], eax
 	PutLInt eax
 	nwln
-	push eax
+	mov [fd1], eax
+	;push eax
 	
 ; Opening file 2
 	mov eax, 5
@@ -35,37 +35,37 @@
 	mov ecx, 1
 	mov edx, 0744
 	int 0x80
-	;mov [fd2], eax
 	PutLInt eax
 	nwln
-	push eax
+	mov [fd2], eax
+	;push eax
 
 ; Reading file 1
 	mov eax, 3
-	;mov ebx, [fd1]
-	mov ebx, [esp + 4]
+	mov ebx, [fd1]
+	;mov ebx, [esp + 4]
 	mov ecx, buf
 	mov edx, BUF_SIZE
 	int 0x80
 
 ; Writing in file 2
 	mov eax, 4
-	;mov ebx, [fd2]
-	mov ebx, [esp]
+	mov ebx, [fd2]
+	;mov ebx, [esp]
 	mov ecx, buf
 	mov edx, BUF_SIZE
 	int 0x80
 
 ; Closing file 1
 	mov eax, 6
-	;mov ebx, [fd1]
-	mov ebx, [esp + 4]
+	mov ebx, [fd1]
+	;mov ebx, [esp + 4]
 	int 0x80
 
 ; Closing file 2
 	mov eax, 6
-	;mov ebx, [fd2]
-	mov ebx, [esp]
+	mov ebx, [fd2]
+	;mov ebx, [esp]
 	int 0x80
 
 .EXIT
