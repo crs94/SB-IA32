@@ -26,7 +26,7 @@
 	int 0x80
 	PutLInt eax
 	nwln
-	mov [fd1], eax
+	mov fd1, eax
 	;push eax
 	
 ; Opening file 2
@@ -37,7 +37,7 @@
 	int 0x80
 	PutLInt eax
 	nwln
-	mov [fd2], eax
+	mov fd2, eax
 	;push eax
 
 ; Reading file 1
